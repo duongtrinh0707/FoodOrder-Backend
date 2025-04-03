@@ -4,11 +4,18 @@ import Category from "../models/Category.js";
 // @desc    Lấy danh sách tất cả danh mục
 // @route   GET /api/categories
 // @access  Public
-const getCategories = asyncHandler(async (req, res) => {
-  const categories = await Category.find({});
-  res.json(categories);
-});
+const getCategories = async (req, res) => {
+  try {
+    const searchQuery = req.query.search || "";
+    const categories = await Category.find({
+      name: { $regex: searchQuery, $options: "i" }
+    });
 
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ message: "Lỗi khi lấy danh sách category" });
+  }
+};
 // @desc    Lấy thông tin chi tiết danh mục
 // @route   GET /api/categories/:id
 // @access  Public
