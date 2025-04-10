@@ -38,7 +38,7 @@ const addToCart = asyncHandler(async (req, res) => {
   const itemIndex = cart.cartItems.findIndex((item) => item.product.toString() === productId);
 
   if (itemIndex > -1) {
-    cart.cartItems[itemIndex].quantity += quantity; // ✅ Cập nhật số lượng
+    cart.cartItems[itemIndex].quantity += quantity; 
   } else {
     cart.cartItems.push({ product: productId, quantity });
   }

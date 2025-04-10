@@ -7,6 +7,8 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import cors from "cors";
 import orderRoutes from "./routes/orderRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
+
 
 
 
@@ -22,8 +24,12 @@ app.use(cors());
 app.use("/api/users", userRoutes); // Sử dụng routes đúng cách
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
-app.use("/api/categories", categoryRoutes);
+app.use("/api/categories", categoryRoutes); 
 app.use("/api/orders", orderRoutes);
+app.use("/api/admin", adminRoutes);
+
+
+
 
 
 const PORT = process.env.PORT || 5000;

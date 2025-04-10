@@ -90,4 +90,4 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 
 
-export { registerUser, loginUser, updateUserProfile  };
+export { registerUser, loginUser, updateUserProfile };
